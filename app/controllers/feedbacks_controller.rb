@@ -6,16 +6,11 @@ class FeedbacksController < ApplicationController
   end
 
   def create
-    # b = FeedbackDetail.new(params[:data])
-    # puts b
-
-
-    #feedback = (user_id:current_user.id)
+    feedback = Feedback.new(user_id:current_user.id)
     test = params[:data].permit(:feedback_content,:motivated,:best,:recommend,:considered)
-    # b = FeedbackDetail.new(test)
-     @todo = FeedbackDetail.new(test)
-     #@todo.feedback_id = feedback.id
-    if @todo.save
+    todo = FeedbackDetail.new(test)
+    todo.feedback_id = feedback.id
+    if todo.save && feedback.save
       render json: @todo, status: :created, location: @todo
     else
       render json: @todo.errors, status: :unprocessable_entity
