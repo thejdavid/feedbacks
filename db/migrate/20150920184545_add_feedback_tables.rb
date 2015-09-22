@@ -4,7 +4,7 @@ class AddFeedbackTables < ActiveRecord::Migration
     t.integer :user_id 
     end
 
-    create_table :feedbackdetails do |t| 
+    create_table :feedback_details do |t| 
     t.integer :employee_id 
     t.integer :feedback_id
     t.text :feedback_content 

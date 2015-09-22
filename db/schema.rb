@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20150920184545) do
 
-  create_table "feedbackdetails", force: :cascade do |t|
+  create_table "feedback_details", force: :cascade do |t|
     t.integer "employee_id"
     t.integer "feedback_id"
     t.text    "feedback_content"
