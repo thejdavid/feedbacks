@@ -6,22 +6,24 @@ class FeedbacksController < ApplicationController
   end
 
   def create
-    feedback = Feedback.new(user_id:current_user.id)
+    employee_id = User.find_by(email:params[:data][:name]).id
+    feedback = Feedback.create!(user_id:current_user.id)
     test = params[:data].permit(:feedback_content,:motivated,:best,:recommend,:considered)
     todo = FeedbackDetail.new(test)
+    todo.employee_id = employee_id
     todo.feedback_id = feedback.id
-    if todo.save && feedback.save
-      render json: @todo, status: :created, location: @todo
-    else
-      render json: @todo.errors, status: :unprocessable_entity
-    end
+    todo.save
+    render :json => nil
+  end
+  def search
+    user_emails = User.all.map{|user| user.email}
+    render :json => user_emails
+  end
+  def myfb
+    user_feedbacks = FeedbackDetail.where(employee_id:current_user.id)
+    render :json => user_feedbacks
   end
 
-  def update
-  end
-
-  def destroy
-  end
 end
 
 
