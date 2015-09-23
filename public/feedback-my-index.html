@@ -1,23 +1,23 @@
-  <h1> Rate Feedbacks </h1>
+<h1> My Feedbacks </h1>
   <div ng-controller="FeedbackController">
 <table class="table table-striped" ng-repeat="fb in list">
-    <thead>
+    <thead style="background-color:#EDEDED;">
         <th>Considered</th>
         <th>Best</th>
         <th>Recommend</th>
         <th>Motivated</th>
-        <th> Rate Feedback </th>
     </thead>
-    <tbody>
-        <tr>
+    <tbody style="background-color:#EDEDED;">
+        <tr style="background-color:#EDEDED;">
         <td>{{fb.considered}}</td>
         <td>{{fb.best}}</td>
         <td>{{fb.recommend}}</td>
         <td>{{fb.motivated}}</td>
-        <td><input type="submit" value="Good"><input type="submit" value="Bad"></td>
     </tr>
         <tr>
         <td colspan=5>{{fb.feedback_content}}</td>
         </tr>
     </tbody>
 </table>
+
+</div>
