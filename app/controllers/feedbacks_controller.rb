@@ -27,8 +27,7 @@ class FeedbacksController < ApplicationController
   end
   end
   def myfb
-        if current_user
-
+  if current_user
     user_feedbacks = FeedbackDetail.where(employee_id:current_user.id)
     render :json => user_feedbacks
   end
