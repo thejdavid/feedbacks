@@ -1,36 +1,99 @@
 <!DOCTYPE html>
 <html ng-app="FeedbackTool">
 <head>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-route.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap-tpls.min.js"></script>
-
-
-    <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="/app.js"></script>
-    <script type="text/javascript" src="feedback-controller.js"></script>
-    <script type="text/javascript" src="tab-controller.js"></script>
-    <script type="text/javascript" src="search-controller.js"></script>
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-route.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap-tpls.min.js"></script>
+  <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+  <script type="text/javascript" src="/app.js"></script>
+  <script type="text/javascript" src="feedback-controller.js"></script>
+  <script type="text/javascript" src="tab-controller.js"></script>
+  <script type="text/javascript" src="search-controller.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
 </head>
-<body style="background: url(http://i.imgur.com/GHr12sH.jpg) no-repeat center center fixed;">
+<body style="background: url(/background.jpg) no-repeat center center fixed;">
+  <% if current_user %>
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color:#363f45">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#"><img alt="FeedbackTool" src="/templogofeedback.png" style="display: block;margin-left: auto;margin-right: auto"></a>
+        <%= link_to "Sign out", destroy_user_session_path, :method => :delete,:class =>"pull-right"%>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <%= render "sidemenu" %>
+      <div class="col-sm-9 col-md-9" style="background-color:#EDEDED;">
+        <div ng-view>
+        </div>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</div>
+  <% else %>
+  <% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>">
+    <a href="#" data-dismiss="alert" class="close">×</a>
+    <ul>
+      <li>
+        <%= value %>
+      </li>
+    </ul>
+  </div>
+  <% end %>
+  <div class="container">
+    <div class="row" id="pwd-container">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <section ng-controller="TabController as tab"  class="login-form">
+          <div class="tab" ng-show="tab.isSelected(1)">
+            <%= render "devise/sessions/login" %>
+          </div>
+          <div class="tab" ng-show="tab.isSelected(2)">
+            <%= render "devise/registrations/new" %>
+          </div>
+          <div class="tab" ng-show="tab.isSelected(3)">
+            <%= render "devise/passwords/new" %>
+          </div>
+        </br>
+        <ul class="nav nav-pills">
+          <li ng-class="{ active:tab === 1}">
+            <a href ng-click="tab.selectTab(1)">Login</a>
+          </li>
+          <li ng-class="{ active:tab === 2}">
+            <a href ng-click="tab.selectTab(2)">Register</a>
+          </li>
+          <li ng-class="{ active:tab === 3}">
+            <a href ng-click="tab.selectTab(3)">Lost Password</a>
+          </li>
+        </ul>
+      </section>
+    </div>
+    <div class="col-md-4"></div>
+    </div>
+  </div>
+  <% end %>
+  <style>
+  body{margin-top:60px;}
 
-
-
-    <style>
-    body{margin-top:60px;}
-
-    .glyphicon { margin-right:10px; }
-    .panel-body { padding:0px; }
-    .panel-body table tr td { padding-left: 15px }
-    .panel-body .table {margin-bottom: 0px; }
+  .glyphicon { margin-right:10px; }
+  .panel-body { padding:0px; }
+  .panel-body table tr td { padding-left: 15px }
+  .panel-body .table {margin-bottom: 0px; }
 /*.navbar-header {
 float:left;
 padding: 0px;
@@ -38,82 +101,6 @@ text-align: center;
 }
 .navbar-brand {float:none;}*/
 </style>
-
-
-<% if current_user %>
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color:#363f45">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#"><img alt="FeedbackTool" src="/templogofeedback.png" style="display: block;margin-left: auto;margin-right: auto"></a>
-                <%= link_to "Sign out", destroy_user_session_path, :method => :delete,:class =>"pull-right"%>
-            </div>
-        </div>
-    </nav>
-
-    <div class="container">
-        <div class="row">
-         <%= render "sidemenu" %>
-            </div>
-            <div class="col-sm-9 col-md-9" style="background-color:#EDEDED;">
-                <div ng-view>
-                </div>
-                <%= yield %>
-
-            </div>
-        </div>
-    </div>
-<% else %>
-    <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>">
-        <a href="#" data-dismiss="alert" class="close">×</a>
-        <ul>
-          <li>
-            <%= value %>
-          </li>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="container">
-        <div class="row" id="pwd-container">
-            <div class="col-md-4"></div>
-            <div class="col-md-4">
-                <section ng-controller="TabController as tab"  class="login-form">
-                    <div class="tab" ng-show="tab.isSelected(1)">
-                        <%= render "devise/sessions/login" %>
-                    </div>
-                    <div class="tab" ng-show="tab.isSelected(2)">
-                        <%= render "devise/registrations/new" %>
-                    </div>
-                    <div class="tab" ng-show="tab.isSelected(3)">
-                        <%= render "devise/passwords/new" %>
-                    </div>
-                </br>
-                <ul class="nav nav-pills">
-                    <li ng-class="{ active:tab === 1}">
-                        <a href ng-click="tab.selectTab(1)">Login</a>
-                    </li>
-                    <li ng-class="{ active:tab === 2}">
-                        <a href ng-click="tab.selectTab(2)">Register</a>
-                    </li>
-                    <li ng-class="{ active:tab === 3}">
-                        <a href ng-click="tab.selectTab(3)">Lost Password</a>
-                    </li>
-                </ul>
-            </section>
-        </div>
-        <div class="col-md-4"></div>
-
-
-  </div>
-</div>
-<% end %>
 </body>
 </html>
 
