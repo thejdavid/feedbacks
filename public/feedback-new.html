@@ -1,7 +1,7 @@
 <h1> Write a new feedback </h1>
-  <form ng-controller="FeedbackController as feedback" ng-submit="submit()">
+<form ng-controller="FeedbackController as feedback" ng-submit="submit()">
     <h5>Employee name(email) :</h5>
-     <input type="text" ng-model="feedback.name" typeahead="state for state in states | filter:$viewValue" />
+    <input type="text" ng-model="feedback.name" typeahead="state for state in states | filter:$viewValue" />
     <h5>Feedback : </h5>
     <textarea class="autogrow" placeholder="Type your feedback here.  Good feedback is specific, actionable, and kind.  Try to write two paragraphs: one positive and one constructive." style="width: 100%; height: 100px; padding: 10px; overflow: hidden; resize: none;" ng-model="feedback.feedback_content"></textarea>
      <h5>I felt inspired and motivated by {{feedback.name}}</h5>
@@ -38,4 +38,4 @@
     </br>
     <input type="submit" id="submit" value="Submit" />
     <h1>{{succes}}</h1>
-  </form>
+</form>
