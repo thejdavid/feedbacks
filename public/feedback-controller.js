@@ -16,7 +16,9 @@ angular.module('FeedbackTool')
 ////////////////////////////////////////////
 // Post a new feedback
   $scope.submit = function() {
-    $http.post('/feedbacks.json', { data:this.feedback }).
+    Validation:
+    if ($scope.FeedbackForm.$valid) {
+      $http.post('/feedbacks.json', { data:this.feedback }).
       then(function(response) {
         $scope.succes = 'sent';
         // this callback will be called asynchronously
@@ -26,6 +28,7 @@ angular.module('FeedbackTool')
         // or server returns response with an error status.
         $scope.succes = 'fail';
       });
+    };
 };
 ////////////////////////////////////////////
 // Email suggestions for new feedback
