@@ -1,6 +1,6 @@
 <h1> My Feedbacks </h1>
 <div ng-controller="FeedbackController">
-  <table class="table table-striped" ng-repeat="fb in mylist">
+  <table class="table table-striped" ng-repeat="fb in mylist" style="table-layout:fixed;">
     <thead style="background-color:#EDEDED;">
       <th>Considered</th>
       <th>Best</th>
@@ -15,7 +15,7 @@
         <td>{{fb.motivated}}</td>
       </tr>
       <tr>
-        <td colspan=5>{{fb.feedback_content}}</td>
+        <td colspan=5 style="word-wrap:break-word;">{{fb.feedback_content}}</td>
       </tr>
     </tbody>
   </table>

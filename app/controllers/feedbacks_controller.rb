@@ -2,7 +2,7 @@ class FeedbacksController < ApplicationController
   respond_to :json
   def index
     if current_user
-      all_user_details = FeedbackDetail.all
+      all_user_details = FeedbackDetail.joins(:votes).where.not(votes: { voter_id: current_user.id })
       render :json => all_user_details
     end
   end
@@ -31,5 +31,3 @@ class FeedbacksController < ApplicationController
     end
   end
 end
-
-

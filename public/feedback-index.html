@@ -1,6 +1,6 @@
 <h1> Rate Feedbacks </h1>
 <div ng-controller="FeedbackController">
-  <table class="table table-striped" ng-repeat="fb in list">
+  <table class="table table-striped" ng-repeat="fb in list" style="table-layout:fixed;" ng-hide="voted" class="ng-hide">
     <thead style="background-color:#EDEDED;">
       <th>Considered</th>
       <th>Best</th>
@@ -14,10 +14,11 @@
       <td>{{fb.best}}</td>
       <td>{{fb.recommend}}</td>
       <td>{{fb.motivated}}</td>
-      <td><input type="submit" ng-click="vote('good',fb.id)" value="Good"><input type="submit" value="Bad" ng-click="vote('bad',fb.id)">{{fb.result}}</td>
+      <td><input type="submit" ng-click="vote('good',fb.id);voted = true" value="Good"><input type="submit" value="Bad" ng-click="vote('bad',fb.id);voted = true"></td>
   </tr>
       <tr>
-      <td colspan=5><p>{{fb.feedback_content}}</p></td>
+      <td colspan=5 style="word-wrap:break-word;">{{fb.feedback_content}}</td>
       </tr>
     </tbody>
   </table>
+</div>
