@@ -57,5 +57,19 @@ $http.get('/feedbacks/myfb.json').
     // or server returns response with an error status.
     $scope.test = " error"
   });
+////////////////////////////////////////////
+// Vote for a Feedback
+  $scope.vote = function(vote,feedback_detail_id){
+    $http.post('/votes.json', { data:vote,feedback_detail_id}).
+      then(function(response) {
+        $scope.result = 'sent';
+        // this callback will be called asynchronously
+        // when the response is available
+      }, function(response) {
+        // called asynchronously if an error occurs
+        // or server returns response with an error status.
+        $scope.result = 'fail';
+      });
+    };
 }]);
 

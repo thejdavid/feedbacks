@@ -14,10 +14,10 @@
       <td>{{fb.best}}</td>
       <td>{{fb.recommend}}</td>
       <td>{{fb.motivated}}</td>
-      <td><input type="submit" value="Good"><input type="submit" value="Bad"></td>
+      <td><input type="submit" ng-click="vote('good',fb.id)" value="Good"><input type="submit" value="Bad" ng-click="vote('bad',fb.id)">{{fb.result}}</td>
   </tr>
       <tr>
-      <td colspan=5>{{fb.feedback_content}}</td>
+      <td colspan=5><p>{{fb.feedback_content}}</p></td>
       </tr>
     </tbody>
   </table>
