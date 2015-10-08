@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150920184545) do
+ActiveRecord::Schema.define(version: 20151008163411) do
+
+  create_table "answers", force: :cascade do |t|
+    t.text     "choice"
+    t.integer  "question_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "feedback_details", force: :cascade do |t|
     t.integer "employee_id"
@@ -25,6 +32,29 @@ ActiveRecord::Schema.define(version: 20150920184545) do
 
   create_table "feedbacks", force: :cascade do |t|
     t.integer "user_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.text     "query"
+    t.integer  "survey_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "responses", force: :cascade do |t|
+    t.integer  "survey_id"
+    t.integer  "question_id"
+    t.integer  "answer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "surveys", force: :cascade do |t|
+    t.string   "title"
+    t.string   "random_code"
+    t.integer  "creator_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: :cascade do |t|
@@ -44,5 +74,13 @@ ActiveRecord::Schema.define(version: 20150920184545) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+
+  create_table "votes", force: :cascade do |t|
+    t.string   "vote"
+    t.integer  "voter_id"
+    t.integer  "feedback_detail_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
