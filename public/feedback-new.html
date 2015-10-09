@@ -1,5 +1,5 @@
 <h1> Write a new feedback </h1>
-<form name="FeedbackForm" ng-controller="FeedbackController as feedback" ng-submit="submit()" novalidate>
+<form name="FeedbackForm" ng-controller="FeedbackController as feedback" ng-submit="submit()" style="background-color:#EDEDED;"novalidate>
     <h5>Employee name(email) :</h5>
     <input type="email" name="username" placeholder="email@provider.com" ng-model="feedback.name" typeahead="state for state in states | filter:$viewValue" required/>
       <span ng-show="FeedbackForm.username.$dirty && FeedbackForm.username.$invalid">

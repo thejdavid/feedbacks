@@ -2,7 +2,14 @@ class FeedbacksController < ApplicationController
   respond_to :json
   def index
     if current_user
-      all_user_details = FeedbackDetail.joins(:votes).where.not(votes: { voter_id: current_user.id })
+      # all_user_details = FeedbackDetail.joins(:votes).where.not(votes: { voter_id: current_user.id })
+      #all_user_details = FeedbackDetail.joins(:votes).where.not(votes: { voter_id: current_user.id }).distinct
+      # all_user_details = FeedbackDetail.all
+      array = Vote.where(voter_id:current_user.id).map{|vote| vote.feedback_detail_id}
+      all_user_details = FeedbackDetail.where.not(id:array)
+
+      p current_user.id
+      p all_user_details
       render :json => all_user_details
     end
   end
