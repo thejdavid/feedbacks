@@ -8,16 +8,39 @@
       <th>Motivated</th>
       <th> Rate Feedback </th>
   </thead>
-  <tbody style="background-color:#EDEDED;">
+    <tbody style="background-color:#EDEDED;">
       <tr style="background-color:#EDEDED;">
       <td>{{fb.considered}}</td>
       <td>{{fb.best}}</td>
       <td>{{fb.recommend}}</td>
       <td>{{fb.motivated}}</td>
       <td><input type="submit" ng-click="vote('good',fb.id);voted = true" value="Good"><input type="submit" value="Bad" ng-click="vote('bad',fb.id);voted = true"></td>
-  </tr>
+     </tr>
       <tr>
       <td colspan=5 style="word-wrap:break-word;">{{fb.feedback_content}}</td>
+      </tr>
+      <tr>
+        <td colspan=5>
+          <h2> Do you think this piece of feedback is... </h2>
+          <h3>Specific </h3>
+          <label class="radio-inline"><input type="radio" name="optradio">1 </label>
+          <label class="radio-inline"><input type="radio" name="optradio">2 </label>
+          <label class="radio-inline"><input type="radio" name="optradio">3 </label>
+          <label class="radio-inline"><input type="radio" name="optradio">4 </label>
+          <label class="radio-inline"><input type="radio" name="optradio">5 </label>
+          <h3>Actionable </h3>
+          <label class="radio-inline"><input type="radio" name="optradio1">1 </label>
+          <label class="radio-inline"><input type="radio" name="optradio1">2 </label>
+          <label class="radio-inline"><input type="radio" name="optradio1">3 </label>
+          <label class="radio-inline"><input type="radio" name="optradio1">4 </label>
+          <label class="radio-inline"><input type="radio" name="optradio1">5 </label>
+          <h3> Kind </h3>
+          <label class="radio-inline"><input type="radio" name="optradio2">1 </label>
+          <label class="radio-inline"><input type="radio" name="optradio2">2 </label>
+          <label class="radio-inline"><input type="radio" name="optradio2">3 </label>
+          <label class="radio-inline"><input type="radio" name="optradio2">4 </label>
+          <label class="radio-inline"><input type="radio" name="optradio2">5 </label>
+        </td>
       </tr>
     </tbody>
   </table>

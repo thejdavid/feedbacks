@@ -1,0 +1,2 @@
+class QavotesController < ApplicationController
+end

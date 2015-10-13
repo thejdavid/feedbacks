@@ -1,0 +1,2 @@
+class QaanswersController < ApplicationController
+end

@@ -1,0 +1,2 @@
+class QaquestionsController < ApplicationController
+end

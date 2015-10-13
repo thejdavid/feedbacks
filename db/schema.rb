@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151008163411) do
+ActiveRecord::Schema.define(version: 20151013053317) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "choice"
@@ -32,6 +32,31 @@ ActiveRecord::Schema.define(version: 20151008163411) do
 
   create_table "feedbacks", force: :cascade do |t|
     t.integer "user_id"
+  end
+
+  create_table "qaanswers", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "question_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "qaquestions", force: :cascade do |t|
+    t.text     "title"
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "qavotes", force: :cascade do |t|
+    t.boolean  "vote"
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.integer  "answer_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -57,6 +82,12 @@ ActiveRecord::Schema.define(version: 20151008163411) do
     t.datetime "updated_at"
   end
 
+  create_table "teams", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -70,6 +101,7 @@ ActiveRecord::Schema.define(version: 20151008163411) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "team_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
