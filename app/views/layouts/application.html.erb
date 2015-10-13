@@ -4,6 +4,7 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular.min.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-route.js"></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.4/ui-bootstrap-tpls.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
   <script type="text/javascript" src="/app.js"></script>
   <script type="text/javascript" src="feedback-controller.js"></script>
@@ -20,6 +21,7 @@
 <body style="background: url(/background.jpg) no-repeat center center fixed;">
   <% if current_user %>
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="background-color:#363f45">
+    <a class="navbar-brand" href="#"><img alt="FeedbackTool" src="/templogofeedback.png" style="display: block;margin-left: auto;margin-right: auto"></a>
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -28,15 +30,19 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#"><img alt="FeedbackTool" src="/templogofeedback.png" style="display: block;margin-left: auto;margin-right: auto"></a>
-        <%= link_to "Sign out", destroy_user_session_path, :method => :delete,:class =>"pull-right"%>
       </div>
+    <%= link_to "Sign out", destroy_user_session_path, :method => :delete%>
+    <ul class="nav navbar-right top-nav">
+      <li>
+          <a rel="nofollow" data-method="delete" href="/users/sign_out"><i class="fa fa-fw fa-power-off"></i> Sign Out </a>
+      </li>
+    </ul>
     </div>
   </nav>
   <div class="container">
     <div class="row">
-      <%= render "sidemenu" %>
-      <div class="col-sm-9 col-md-9">
+      <div class="col-sm-3 col-md-3"><%= render "sidemenu" %></div>
+      <div class="col-sm-9 col-md-9" style="margin-left: 40px;">
         <div ng-view>
         </div>
         <%= yield %>
@@ -94,12 +100,11 @@
   .panel-body { padding:0px; }
   .panel-body table tr td { padding-left: 15px }
   .panel-body .table {margin-bottom: 0px; }
-/*.navbar-header {
-float:left;
-padding: 0px;
-text-align: center;
+
+a {
+    color: white;
+    text-decoration: none;
 }
-.navbar-brand {float:none;}*/
 </style>
 </body>
 </html>

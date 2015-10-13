@@ -1,63 +1,62 @@
 
 <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                    <li>
-                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#d1"><i class="fa fa-fw fa-arrows-v"></i> Admin <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="d1" class="collapse">
-                          <li><a ng-href="#">Create a new team</a></li>
-                          <li><a ng-href="#">Manage teams</a></li>
-                          <li><a ng-href="#">Add Manager roles</a></li>
-                        </ul>
-                    </li>
+  <ul class="nav navbar-nav side-nav">
+      <li>
+          <a href="javascript:;" data-toggle="collapse" data-target="#d1"><i class="fa fa-fw fa-gear"> </i>      Admin </a>
+          <ul id="d1" class="collapse">
+            <li><a ng-href="#"><i class="fa fa-tachometer"></i>  Create a new team</a></li>
+            <li><a ng-href="#">Manage teams</a></li>
+            <li><a ng-href="#">Add Manager roles</a></li>
+          </ul>
+      </li>
 
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#d2"><i class="fa fa-fw fa-arrows-v"></i> Write Feedback <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="d2" class="collapse">
-                          <li><a ng-href="#/new">Give a Personal Feedback</a></li>
-                          <li><a ng-href="#/new">Shoutout</a></li>
-                          <li><a ng-href="#/new">Help!</a></li>
-                          <li><a ng-href="#/new">Happy</a></li>
-                        </ul>
-                    </li>
+      <li>
+          <a href="javascript:;" data-toggle="collapse" data-target="#d2"><i class="fa fa-pencil"></i>      Write Feedback </a>
+          <ul id="d2" class="collapse">
+            <li><a ng-href="#/new">Give a Personal Feedback</a></li>
+            <li><a ng-href="#/new">Shoutout</a></li>
+            <li><a ng-href="#/new">Help!</a></li>
+            <li><a ng-href="#/new">Happy</a></li>
+          </ul>
+      </li>
 
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#d3"><i class="fa fa-fw fa-arrows-v"></i> Feedbacks<i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="d3" class="collapse">
-                          <li><a ng-href="#myfb">My Feedbacks</a></li>
-                          <li><a ng-href="#/dashboard">Rate Feedbacks</a></li>
-                          <li><a ng-href="#/new">Feedback Reviews</a></li>
-                        </ul>
-                    </li>
+      <li>
+          <a href="javascript:;" data-toggle="collapse" data-target="#d3"><i class="fa fa-lightbulb-o"></i>     Feedbacks</a>
+          <ul id="d3" class="collapse">
+            <li><a ng-href="#myfb">My Feedbacks</a></li>
+            <li><a ng-href="#/dashboard">Rate Feedbacks</a></li>
+            <li><a ng-href="#/new">Feedback Reviews</a></li>
+          </ul>
+      </li>
 
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#d4"><i class="fa fa-fw fa-arrows-v"></i> Open Questions <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="d4" class="collapse">
-                          <li><a ng-href="#">Ask a Question</a>
-                          <li><a ng-href="#">Tech Departement</a> <span class="label label-info">5</span></li>
-                          <li><a ng-href="#">Design Departement</a> <span class="label label-info">40</span></li>
-                          <li><a ng-href="#">HR Departement</a> <span class="label label-info">69</span></li>
-                          <li><a ng-href="#">Ecommerce Departement</a> <span class="label label-info">420</span></li>
-                          <li><a ng-href="#">NASA Departement</a> <span class="label label-info">13</span></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#d5"><i class="fa fa-fw fa-arrows-v"></i> Survey <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="d5" class="collapse">
-                          <li><a ng-href="#myfb">Create a New Survey</a></li>
-                          <li><a ng-href="#myfb">Manage my Surveys</a></li>
-                          <li><a ng-href="#myfb">Answer Surveys</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </nav>
+      <li>
+          <a href="javascript:;" data-toggle="collapse" data-target="#d4"><i class="fa fa-comment"></i>     Open Questions </a>
+          <ul id="d4" class="collapse">
+            <li><a ng-href="#">Ask a Question</a>
+            <li><a ng-href="#">Tech Departement</a></li>
+            <li><a ng-href="#">Design Departement</a></li>
+            <li><a ng-href="#">HR Departement</a></li>
+            <li><a ng-href="#">Ecommerce Departement</a></li>
+            <li><a ng-href="#">NASA Departement</a></li>
+          </ul>
+      </li>
+      <li>
+          <a href="javascript:;" data-toggle="collapse" data-target="#d5"><i class="fa fa-bullhorn"></i>     Survey </a>
+          <ul id="d5" class="collapse">
+            <li><a ng-href="#myfb">Create a New Survey</a></li>
+            <li><a ng-href="#myfb">Manage my Surveys</a></li>
+            <li><a ng-href="#myfb">Answer Surveys</a></li>
+          </ul>
+      </li>
+  </ul>
+</div>
 
 
         <style>
+        ul.nav a:hover { color: white; }
+        ul.nav a:focus { color: white; }
+        ul.nav a:active { color: white; }
+
         body {
     margin-top: 100px;
     background-color: #222;
