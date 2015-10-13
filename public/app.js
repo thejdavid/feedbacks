@@ -1,4 +1,4 @@
-angular.module('FeedbackTool',['ngRoute','ng-rails-csrf','ui.bootstrap'])
+angular.module('FeedbackTool',['ngRoute','ng-rails-csrf','ui.bootstrap','ngAnimate'])
 .config(function($routeProvider){
   $routeProvider.when('/dashboard', {
    templateUrl: '/feedback-index.html'
