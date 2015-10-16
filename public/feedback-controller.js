@@ -58,9 +58,10 @@ $http.get('/feedbacks/myfb.json').
     $scope.test = " error"
   });
 ////////////////////////////////////////////
-// Vote for a Feedback
-  $scope.vote = function(vote,feedback_detail_id){
-    $http.post('/votes.json', { data:vote,feedback_detail_id}).
+// Review a Feedback
+  $scope.submitReview = function(id,data){
+    var data = data
+    $http.post('/votes.json', { id:id,data}).
       then(function(response) {
         $scope.result = 'sent';
         // this callback will be called asynchronously

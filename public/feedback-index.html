@@ -3,43 +3,58 @@
   <table class="table table-striped" ng-repeat="fb in list" style="table-layout:fixed;" ng-hide="voted" class="ng-hide">
     <thead style="background-color:#EDEDED;margin-bottom:25px;">
       <th>Considered</th>
-      <th>Best</th>
+      <th>actionable</th>
       <th>Recommend</th>
-      <th>Motivated</th>
-      <th> Rate Feedback </th>
+      <th>kind</th>
+      <th></th>
   </thead>
     <tbody style="background-color:#EDEDED;">
       <tr style="background-color:#EDEDED;">
       <td>{{fb.considered}}</td>
-      <td>{{fb.best}}</td>
+      <td>{{fb.actionable}}</td>
       <td>{{fb.recommend}}</td>
       <td>{{fb.motivated}}</td>
-      <td><input type="submit" ng-click="vote('good',fb.id);voted = true" value="Good" class="ng-hide-add"><input type="submit" value="Bad" ng-click="vote('bad',fb.id);voted = true" class="ng-hide-remove"></td>
+      <td></td>
      </tr>
       <tr>
       <td colspan=5 style="word-wrap:break-word;">{{fb.feedback_content}}</td>
       </tr>
       <tr>
         <td colspan=5>
-          <h2> Do you think this piece of feedback is... </h2>
-          <h3>Specific </h3>
-          <label class="radio-inline"><input type="radio" name="optradio">1 </label>
-          <label class="radio-inline"><input type="radio" name="optradio">2 </label>
-          <label class="radio-inline"><input type="radio" name="optradio">3 </label>
-          <label class="radio-inline"><input type="radio" name="optradio">4 </label>
-          <label class="radio-inline"><input type="radio" name="optradio">5 </label>
-          <h3>Actionable </h3>
-          <label class="radio-inline"><input type="radio" name="optradio1">1 </label>
-          <label class="radio-inline"><input type="radio" name="optradio1">2 </label>
-          <label class="radio-inline"><input type="radio" name="optradio1">3 </label>
-          <label class="radio-inline"><input type="radio" name="optradio1">4 </label>
-          <label class="radio-inline"><input type="radio" name="optradio1">5 </label>
-          <h3> Kind </h3>
-          <label class="radio-inline"><input type="radio" name="optradio2">1 </label>
-          <label class="radio-inline"><input type="radio" name="optradio2">2 </label>
-          <label class="radio-inline"><input type="radio" name="optradio2">3 </label>
-          <label class="radio-inline"><input type="radio" name="optradio2">4 </label>
-          <label class="radio-inline"><input type="radio" name="optradio2">5 </label>
+          <form name="ReviewForm" style="background-color:#EDEDED;" ng-submit="submitReview(fb.id,ReviewForm)" novalidate>
+            <ng-form name="ReviewValidation">
+            <h4> Do you think this piece of feedback is... </h4>
+            <h5>Specific </h5>
+              <label class="radio-inline"><input type="radio" name="specific" ng-model="ReviewForm.specific" value="1" required>1 </label>
+              <label class="radio-inline"><input type="radio" name="specific" ng-model="ReviewForm.specific" value="2" required>2 </label>
+              <label class="radio-inline"><input type="radio" name="specific" ng-model="ReviewForm.specific" value="3" required>3 </label>
+              <label class="radio-inline"><input type="radio" name="specific" ng-model="ReviewForm.specific" value="4" required>4 </label>
+              <label class="radio-inline"><input type="radio" name="specific" ng-model="ReviewForm.specific" value="5" required>5 </label>
+              <span ng-show="ReviewValidation.specific.$pristine && ReviewValidation.specific.$invalid">
+                <span ng-show="ReviewValidation.specific.$error.required" style="color:red">Please select an option</span>
+              </span>
+            <h5>Actionable </h5>
+              <label class="radio-inline"><input type="radio" name="actionable" ng-model="ReviewForm.actionable" value="1" required>1 </label>
+              <label class="radio-inline"><input type="radio" name="actionable" ng-model="ReviewForm.actionable" value="2" required>2 </label>
+              <label class="radio-inline"><input type="radio" name="actionable" ng-model="ReviewForm.actionable" value="3" required>3 </label>
+              <label class="radio-inline"><input type="radio" name="actionable" ng-model="ReviewForm.actionable" value="4" required>4 </label>
+              <label class="radio-inline"><input type="radio" name="actionable" ng-model="ReviewForm.actionable" value="5" required>5 </label>
+              <span ng-show="ReviewValidation.actionable.$pristine && ReviewValidation.actionable.$invalid">
+                <span ng-show="ReviewValidation.actionable.$error.required" style="color:red">Please select an option</span>
+              </span>
+            <h5> Kind </h5>
+              <label class="radio-inline"><input type="radio" name="kind" ng-model="ReviewForm.kind" value="1" required>1 </label>
+              <label class="radio-inline"><input type="radio" name="kind" ng-model="ReviewForm.kind" value="2" required>2 </label>
+              <label class="radio-inline"><input type="radio" name="kind" ng-model="ReviewForm.kind" value="3" required>3 </label>
+              <label class="radio-inline"><input type="radio" name="kind" ng-model="ReviewForm.kind" value="4" required>4 </label>
+              <label class="radio-inline"><input type="radio" name="kind" ng-model="ReviewForm.kind" value="5" required>5 </label>
+              <span ng-show="ReviewValidation.kind.$pristine && ReviewValidation.kind.$invalid">
+                <span ng-show="ReviewValidation.kind.$error.required" style="color:red">Please select an option</span>
+              </span>
+            </br>
+            <input type="submit" id="submit" value="Submit" ng-disabled="ReviewForm.kind.$invalid || ReviewForm.actionable.$invalid || ReviewForm.specific.$invalid"/>
+            </ng-form>
+          </form>
         </td>
       </tr>
     </tbody>
@@ -51,7 +66,6 @@
 .ng-hide-add         { animation:0.5s lightSpeedOut ease; }
 
 /* when showing the picture */
-.ng-hide-remove      { animation:0.5s flipInX ease; }
 
 /* ANIMATIONS (FROM ANIMATE.CSS) ======================== */
 /* flip in */

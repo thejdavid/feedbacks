@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     end
   end
   post '/votes' => 'votes#create'
+  get '/votes' => 'votes#index'
+
   root 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

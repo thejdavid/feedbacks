@@ -1,5 +1,4 @@
 class FeedbacksController < ApplicationController
-  respond_to :json
   def index
     if current_user
       array = Vote.where(voter_id:current_user.id).map{|vote| vote.feedback_detail_id}

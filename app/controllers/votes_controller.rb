@@ -7,4 +7,11 @@ class VotesController < ApplicationController
       render :json => nil
     end
   end
+  def index
+    c = User.find(current_user.id)
+    array = []
+    t = c.feedbacks.includes(:feedback_detail=>:votes)
+    t.each {|x| array << x.feedback_detail.as_json({:include=>:votes})}
+    render :json => array
+  end
 end
