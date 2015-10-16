@@ -11,5 +11,17 @@ angular.module('FeedbackTool',['ngRoute','ng-rails-csrf','ui.bootstrap','ngAnima
     controller:'FeedbackController',
     controllerAs: "feedback"
   })
+  .when('/reviews', {
+   templateUrl: '/feedback-reviews.html',
+    controller:'ReviewController',
+  })
+  .when('/openquestions', {
+   templateUrl: '/qa-index.html',
+    controller:'QaController',
+  })
+  .when('/openquestions/new', {
+   templateUrl: '/qa-new.html',
+    controller:'QaController',
+  })
   .otherwise({ redirectTo: '/' });
 });
