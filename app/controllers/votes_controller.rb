@@ -8,10 +8,10 @@ class VotesController < ApplicationController
     end
   end
   def index
-    c = User.find(current_user.id)
+    user = User.find(current_user.id)
     array = []
-    t = c.feedbacks.includes(:feedback_detail=>:votes)
-    t.each {|x| array << x.feedback_detail.as_json({:include=>:votes})}
+    user_fbdetail_and_votes_joined = user.feedbacks.includes(:feedback_detail=>:votes)
+    user_fbdetail_and_votes_joined.each {|feedback| array << feedback.feedback_detail.as_json({:include=>:votes})}
     render :json => array
   end
 end
