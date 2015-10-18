@@ -1,44 +1,25 @@
 <div class="container content">
-    <div class="row">
-        <div class="col-md-6">
-          <h4> What is the color of the ocean? What is the color of the ocean? What is the color of the ocean? What is the color of the ocean? </h4>
-            <div class="testimonials">
-              <div class="active item">
-                  <blockquote><p>Denim you probably haven't heard of. Lorem ipsum dolor met consectetur adipisicing sit amet, consectetur adipisicing elit, of them jean shorts sed magna aliqua. Lorem ipsum dolor met.</p></blockquote>
-                  <div class="carousel-info">
-                    <img alt="" src="http://keenthemes.com/assets/bootsnipp/img1-small.jpg" class="pull-left">
-                    <div class="pull-left">
-                      <span class="testimonials-name">Lina Mars</span>
-                      <span class="testimonials-post">Commercial Director</span>
-                    </div>
-                    <div class="pull-right">
-                <input type="submit" ng-click="vote('up',fb.id);voted = true" value="Up" class="ng-hide-add"><input type="submit" value="Down" ng-click="vote('down',fb.id);voted = true" class="ng-hide-remove">
-                <h1>+3 </h1>
-              </div>
-                  </div>
-                </div>
+  <div class="row">
+    <div class="col-md-6" style="background-color:#FDFDFD" ng-repeat="question in List" ng-click="OpenQuestion(question.id)">
+      <h4 ng-click="OpenQuestion(question.id)"> {{question.title}}</h4>
+        <div class="testimonials">
+          <div class="active item">
+          <blockquote ng-click="OpenQuestion(question.id)"><p>{{question.content}}</p></blockquote>
+          <div class="carousel-info">
+            <img alt="" src="http://keenthemes.com/assets/bootsnipp/img1-small.jpg" class="pull-left">
+            <div class="pull-left">
+              <span class="testimonials-name">Lina Mars</span>
+              <span class="testimonials-post">Commercial Director</span>
             </div>
-        </div>
-        <div class="col-md-6">
-            <div class="testimonials">
-              <div class="active item">
-                  <blockquote><p>Denim you probably haven't heard of. Lorem ipsum dolor met consectetur adipisicing sit amet, consectetur adipisicing elit, of them jean shorts sed magna aliqua. Lorem ipsum dolor met.</p></blockquote>
-                  <div class="carousel-info">
-                    <img alt="" src="http://keenthemes.com/assets/bootsnipp/img1-small.jpg" class="pull-left">
-                    <div class="pull-left">
-                      <span class="testimonials-name">Lina Mars</span>
-                      <span class="testimonials-post">Commercial Director</span>
-                    </div>
-                                        <div class="pull-right">
-                <input type="submit" ng-click="vote('up',fb.id);voted = true" value="Up" class="ng-hide-add"><input type="submit" value="Down" ng-click="vote('down',fb.id);voted = true" class="ng-hide-remove">
-                <h1>+3 </h1>
-              </div>
-                  </div>
-                  </div>
-                </div>
+            <div class="pull-right">
+              <input type="submit" ng-click="vote('up',question.id);voted = true" value="Up" class="ng-hide-add"><input type="submit" value="Down" ng-click="vote('down',question.id);voted = true" class="ng-hide-remove">
+              <h1>+3 </h1>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
 

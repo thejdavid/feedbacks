@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   end
   post '/votes' => 'votes#create'
   get '/votes' => 'votes#index'
-
+  resources :qaquestions, only: [:index,:create,:show]
+  resources :qaanswers, only: [:create]
+  resources :qavotes, only: [:create]
   root 'welcome#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
