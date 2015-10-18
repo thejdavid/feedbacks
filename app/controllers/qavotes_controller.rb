@@ -8,10 +8,3 @@ class QavotesController < ApplicationController
     end
   end
 end
-    create_table :qavotes do |t|
-      t.boolean :vote
-      t.integer :user_id
-      t.integer :question_id
-      t.integer :answer_id
-      t.timestamps
-    end
