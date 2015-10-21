@@ -1,7 +1,5 @@
-<div class="container content">
-  <div class="row">
-    <div class="col-md-6" style="background-color:#FDFDFD" ng-repeat="question in List" ng-click="OpenQuestion(question.id)">
-      <h4 ng-click="OpenQuestion(question.id)"> {{question.title}}</h4>
+    <div class="col-md-4" style="background-color:#FDFDFD" ng-repeat="question in List" ng-click="OpenQuestion(question.id)">
+      <h4 ng-click="OpenQuestion(question.id)" style="word-wrap: break-word;"> {{question.title}}</h4>
         <div class="testimonials">
           <div class="active item">
           <blockquote ng-click="OpenQuestion(question.id)"><p>{{question.content}}</p></blockquote>
@@ -19,10 +17,6 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
-
-
 <style>
 /* Content */
 .content {
@@ -39,6 +33,7 @@
     line-height: 20px;
     padding: 15px;
     position: relative;
+    word-wrap: break-word;
 }
 .testimonials blockquote::before {
     width: 0; 

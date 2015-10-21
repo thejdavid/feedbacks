@@ -23,5 +23,9 @@ angular.module('FeedbackTool',['ngRoute','ng-rails-csrf','ui.bootstrap','ngAnima
     templateUrl: '/qa-new.html',
     controller:'QaController',
   })
+  .when("/openquestions/:id", {
+    templateUrl: '/qa-show.html',
+    controller:'QaShowController',
+  })
   .otherwise({ redirectTo: '/' });
 });

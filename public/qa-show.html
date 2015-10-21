@@ -1,0 +1,24 @@
+<div ng-controller="QaShowController">
+  <button onclick="history.back()">Back</button>
+  <div class="row">
+    <div class="col-md-12" style="background-color:#FDFDFD">
+      <h4 style="word-wrap: break-word;"> {{Qdata.title}}</h4>
+        <div class="testimonials">
+          <div class="active item">
+          <blockquote><p>{{Qdata.content}}</p></blockquote>
+          <div class="carousel-info">
+            <img alt="" src="http://keenthemes.com/assets/bootsnipp/img1-small.jpg" class="pull-left">
+            <div class="pull-left">
+              <span class="testimonials-name">Lina Mars</span>
+              <span class="testimonials-post">Commercial Director</span>
+            </div>
+            <div class="pull-right">
+              <input type="submit" ng-click="vote('up',question.id);voted = true" value="Up" class="ng-hide-add"><input type="submit" value="Down" ng-click="vote('down',question.id);voted = true" class="ng-hide-remove">
+              <h1>+3 </h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
