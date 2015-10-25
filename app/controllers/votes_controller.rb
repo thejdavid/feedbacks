@@ -6,9 +6,7 @@ class VotesController < ApplicationController
       vote.specific = params[:specific]
       vote.actionable = params[:actionable]
       vote.kind = params[:kind]
-      p vote.errors.full_messages
       vote.save
-      p vote.errors.full_messages
       render :json => nil
     end
   end
