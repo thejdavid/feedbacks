@@ -21,7 +21,7 @@
       </tr>
       <tr>
         <td colspan=5>
-          <form name="ReviewForm" style="background-color:#EDEDED;" ng-submit="submitReview(fb.id,ReviewForm)" novalidate>
+          <form name="ReviewForm" style="background-color:#EDEDED;" ng-submit="submitReview(fb.id,ReviewForm.specific,ReviewForm.actionable,ReviewForm.kind)" novalidate>
             <ng-form name="ReviewValidation">
             <h4> Do you think this piece of feedback is... </h4>
             <h5>Specific </h5>
@@ -52,7 +52,7 @@
                 <span ng-show="ReviewValidation.kind.$error.required" style="color:red">Please select an option</span>
               </span>
             </br>
-            <input type="submit" id="submit" value="Submit" ng-disabled="ReviewForm.kind.$invalid || ReviewForm.actionable.$invalid || ReviewForm.specific.$invalid"/>
+            <input type="submit" id="submit" value="Submit" ng-disabled="ReviewValidation.kind.$invalid || ReviewValidation.actionable.$invalid || ReviewValidation.specific.$invalid" class="ng-hide-add" ng-click="voted = true;"/>
             </ng-form>
           </form>
         </td>

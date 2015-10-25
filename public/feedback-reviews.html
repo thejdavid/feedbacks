@@ -20,7 +20,11 @@
         <td colspan=5 style="word-wrap:break-word;">{{fb.feedback_content}}</td>
       </tr>
       <tr ng-repeat="review in fb.votes">
-         <td colspan=5 style="word-wrap:break-word;"> <h1> {{review.vote}} <h1></td>
+         <td colspan=1 style="word-wrap:break-word;"> <h4> Actionable {{review.actionable}} / 5 <h4></td>
+         <td colspan=1 style="word-wrap:break-word;"> <h4> Kind {{review.kind}} / 5 <h4></td>
+         <td colspan=1 style="word-wrap:break-word;"> <h4> Specific {{review.specific}} / 5 <h4></td>
+         <td colspan=2> </td>
+
       </tr>
     </tbody>
   </table>

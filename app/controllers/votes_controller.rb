@@ -1,9 +1,14 @@
 class VotesController < ApplicationController
   def create
     if current_user
-      vote = Vote.find_or_initialize_by(voter_id: current_user.id,feedback_detail_id:params[:feedback_detail_id])
-      vote.vote = params[:data]
+      params.permit(:id,:specific,:kind,:actionable)
+      vote = Vote.find_or_initialize_by(voter_id: current_user.id,feedback_detail_id:params[:id])
+      vote.specific = params[:specific]
+      vote.actionable = params[:actionable]
+      vote.kind = params[:kind]
+      p vote.errors.full_messages
       vote.save
+      p vote.errors.full_messages
       render :json => nil
     end
   end

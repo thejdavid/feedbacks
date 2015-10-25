@@ -59,17 +59,17 @@ $http.get('/feedbacks/myfb.json').
   });
 ////////////////////////////////////////////
 // Review a Feedback
-  $scope.submitReview = function(id,data){
-    var data = data
-    $http.post('/votes.json', { id:id,data}).
+  $scope.submitReview = function(id,specific,actionable,kind){
+    $http.post('/votes.json', {id,specific,actionable,kind}).
       then(function(response) {
-        $scope.result = 'sent';
+        $scope.result = true;
+        console.log($scope.result)
         // this callback will be called asynchronously
         // when the response is available
       }, function(response) {
         // called asynchronously if an error occurs
         // or server returns response with an error status.
-        $scope.result = 'fail';
+        $scope.result = false;
       });
     };
 }]);
