@@ -4,7 +4,8 @@ angular.module('FeedbackTool',['ngRoute','ng-rails-csrf','ui.bootstrap','ngAnima
    templateUrl: '/feedback-index.html'
   })
   .when('/myfb', {
-   templateUrl: '/feedback-my-index.html'
+   templateUrl: '/feedback-my-index.html',
+    controller:'FeedbackController',
   })
   .when('/new', {
    templateUrl: '/feedback-new.html',
@@ -21,11 +22,11 @@ angular.module('FeedbackTool',['ngRoute','ng-rails-csrf','ui.bootstrap','ngAnima
   })
   .when('/openquestions/new', {
     templateUrl: '/qa-new.html',
-    controller:'QaController',
+    controller:'QaNewController',
   })
   .when("/openquestions/:id", {
     templateUrl: '/qa-show.html',
     controller:'QaShowController',
   })
-  .otherwise({ redirectTo: '/' });
+  .otherwise({ redirectTo: '/dashboard' });
 });

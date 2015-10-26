@@ -8,13 +8,12 @@ class QaquestionsController < ApplicationController
   end
   def create
     if current_user
-      Qaquestion.create!(title:params[:title],content:param[:question],user_id:current_user.id)
+      Qaquestion.create!(title:params[:question][:title],content:params[:question][:question_content],user_id:current_user.id)
       render :json => nil
     end
   end
   def show
     if current_user
-      puts "bite bite bite bite bite"
       render :json => Qaquestion.find(params[:id])
     end
   end

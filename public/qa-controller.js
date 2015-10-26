@@ -14,10 +14,9 @@ angular.module('FeedbackTool')
         $scope.test = " error"
   });
   $scope.vote = function(id){};
-/////////////// Show
+///////////////navigate Show
   $scope.OpenQuestion = function(Id){
     var url = '/openquestions/'+ Id
     $location.path(url)
-    $scope.$apply();
     };
 }]);

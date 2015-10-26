@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151013053317) do
+ActiveRecord::Schema.define(version: 20151025100858) do
 
   create_table "answers", force: :cascade do |t|
     t.text     "choice"
@@ -113,6 +113,9 @@ ActiveRecord::Schema.define(version: 20151013053317) do
     t.integer  "feedback_detail_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "actionable"
+    t.integer  "specific"
+    t.integer  "kind"
   end
 
 end
