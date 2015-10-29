@@ -1,16 +1,14 @@
 angular.module('FeedbackTool',['ngRoute','ng-rails-csrf','ui.bootstrap','ngAnimate'])
-.config(function($routeProvider){
-  $routeProvider.when('/dashboard', {
+.config(function($routeProvider,$locationProvider){
+  $routeProvider
+  .when('/dashboard', {
    templateUrl: '/feedback-index.html'
   })
   .when('/myfb', {
-   templateUrl: '/feedback-my-index.html',
-    controller:'FeedbackController',
+   templateUrl: '/feedback-userindex.html',
   })
   .when('/new', {
    templateUrl: '/feedback-new.html',
-    controller:'FeedbackController',
-    controllerAs: "feedback"
   })
   .when('/reviews', {
     templateUrl: '/feedback-reviews.html',
@@ -18,7 +16,7 @@ angular.module('FeedbackTool',['ngRoute','ng-rails-csrf','ui.bootstrap','ngAnima
   })
   .when('/openquestions', {
     templateUrl: '/qa-index.html',
-    controller:'QaController',
+    controller:'QaIndexController',
   })
   .when('/openquestions/new', {
     templateUrl: '/qa-new.html',
