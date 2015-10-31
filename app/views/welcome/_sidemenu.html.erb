@@ -5,64 +5,60 @@
 <div class="profile-sidebar">
         <!-- SIDEBAR USERPIC -->
         <div class="profile-userpic">
-          <img src="" class="img-responsive" alt="">
+          <img src="http://lorempixel.com/85/85/people/" class="img-responsive" alt="">
         </div>
         <div class="profile-usertitle">
           <div class="profile-usertitle-name">
             Marcus Doe
           </div>
           <div class="profile-usertitle-job">
-            You have 3 news feedback
+            You have 3 new feedbacks
           </div>
         </div>
     </li>
       <li>
-          <a href="javascript:;" data-toggle="collapse" data-target="#d1"><i class="fa fa-fw fa-gear"> </i>      Admin </a>
+          <a href="javascript:;" data-toggle="collapse" data-parent="#proposalAccordian" data-target="#d1"><i class="fa fa-fw fa-gear"> </i>      Admin </a>
           <ul id="d1" class="collapse">
-            <li><a ng-href="#/"><i class="fa fa-tachometer"></i>  Create a new team</a></li>
-            <li><a ng-href="#/">Manage teams</a></li>
-            <li><a ng-href="#/">Add Manager roles</a></li>
+            <li><a ng-href="#/"><i class="fa fa-plus"></i>     Create a new team</a></li>
+            <li><a ng-href="#/"><i class="fa fa-users"></i>     Manage teams</a></li>
+            <li><a ng-href="#/">     Add Manager roles</a></li>
           </ul>
       </li>
 
       <li>
-          <a href="javascript:;" data-toggle="collapse" data-target="#d2"><i class="fa fa-pencil"></i>      Write Feedback </a>
+          <a href="javascript:;" data-toggle="collapse" data-parent="#proposalAccordian"  data-target="#d2"><i class="fa fa-pencil"></i>      Write Feedback </a>
           <ul id="d2" class="collapse">
-            <li><a ng-href="#/new">Give a Personal Feedback</a></li>
-            <li><a ng-href="#/new">Shoutout</a></li>
-            <li><a ng-href="#/new">Help!</a></li>
-            <li><a ng-href="#/new">Happy</a></li>
+            <li><a ng-href="#/new"><i class="fa fa-plus-circle"></i>     Give a Personal Feedback</a></li>
+            <li><a ng-href="#/new"><i class="fa fa-bullhorn"></i>     Shoutout</a></li>
+            <li><a ng-href="#/new"><i class="fa fa-info-circle"></i>     Help!</a></li>
+            <li><a ng-href="#/new"><i class="fa fa-heart-o"></i>     Happy</a></li>
           </ul>
       </li>
 
       <li>
-          <a href="javascript:;" data-toggle="collapse" data-target="#d3"><i class="fa fa-lightbulb-o"></i>     Feedbacks</a>
+          <a href="javascript:;" data-toggle="collapse" data-parent="#proposalAccordian"  data-target="#d3"><i class="fa fa-lightbulb-o"></i>     Feedbacks</a>
           <ul id="d3" class="collapse">
-            <li><a ng-href="#/myfb">My Feedbacks</a></li>
-            <li><a ng-href="#/dashboard">Rate Feedbacks</a></li>
-            <li><a ng-href="#/reviews">Feedback Reviews</a></li>
+            <li><a ng-href="#/myfb"><i class="fa fa-newspaper-o"></i>     My Feedbacks</a></li>
+            <li><a ng-href="#/dashboard"><i class="fa fa-star"></i>     Rate Feedbacks</a></li>
+            <li><a ng-href="#/reviews"><i class="fa fa-tachometer"></i>     Feedback Reviews</a></li>
           </ul>
       </li>
 
       <li>
-          <a href="javascript:;" data-toggle="collapse" data-target="#d4"><i class="fa fa-comment"></i>     Open Questions </a>
+          <a href="javascript:;" data-toggle="collapse" data-parent="#proposalAccordian" data-target="#d4"><i class="fa fa-comment"></i>     Open Questions </a>
           <ul id="d4" class="collapse">
-            <li><a ng-href="#/openquestions/new">Ask a Question</a>
-            <li><a ng-href="#/openquestions">All Questions</a></li>
-            <li><a ng-href="#/">Design Departement</a></li>
-            <li><a ng-href="#/">HR Departement</a></li>
-            <li><a ng-href="#/">Ecommerce Departement</a></li>
-            <li><a ng-href="#/">NASA Departement</a></li>
+            <li><a ng-href="#/openquestions/new"><i class="fa fa-question-circle"></i>     Ask a Question</a>
+            <li><a ng-href="#/openquestions"><i class="fa fa-list"></i>     All Questions</a></li>
           </ul>
       </li>
-      <li>
+<!--       <li>
           <a href="javascript:;" data-toggle="collapse" data-target="#d5"><i class="fa fa-bullhorn"></i>     Survey </a>
           <ul id="d5" class="collapse">
             <li><a ng-href="#/myfb">Create a New Survey</a></li>
             <li><a ng-href="#/myfb">Manage my Surveys</a></li>
             <li><a ng-href="#/myfb">Answer Surveys</a></li>
           </ul>
-      </li>
+      </li> -->
   </ul>
 </div>
 
@@ -75,9 +71,8 @@
 
 /* Profile sidebar */
 .profile-sidebar {
-  padding: 20px 0 10px 0;
-  background: #fff;
-  border-right: 1px solid;
+  padding: 20px 46px 3px 41px;
+  background: #222;
 }
 
 .profile-userpic img {
@@ -223,7 +218,7 @@
         position: fixed;
         top: 51px;
         left: 225px;
-        width: 14%;
+        width: 17%;
         margin-left: -225px;
         border: none;
         border-radius: 0;
@@ -235,7 +230,7 @@
     }
 
     .side-nav>li>a {
-        width: 225px;
+        width: 240px;
     }
 
     .side-nav li a:hover,
@@ -251,7 +246,7 @@
 
 .side-nav>li>ul>li>a {
     display: block;
-    padding: 10px 15px 10px 38px;
+    padding: 8px 0px 5px 20px;
     text-decoration: none;
     color: #999;
 }
