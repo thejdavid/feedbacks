@@ -1,8 +1,8 @@
 class FeedbacksController < ApplicationController
   def index
     if current_user
-      array = Vote.where(voter_id:current_user.id).map{|vote| vote.feedback_detail_id}
-      all_user_details = FeedbackDetail.where.not(id:array)
+      already_voted_fb_id = Vote.where(voter_id:current_user.id).map{|vote| vote.feedback_detail_id}
+      all_user_details = FeedbackDetail.order("id desc").where.not(id:already_voted_fb_id)
       render :json => all_user_details
     end
   end
@@ -26,7 +26,7 @@ class FeedbacksController < ApplicationController
   end
   def myfb
     if current_user
-      user_feedbacks = FeedbackDetail.where(employee_id:current_user.id)
+      user_feedbacks = FeedbackDetail.order("id desc").where(employee_id:current_user.id)
       render :json => user_feedbacks
     end
   end

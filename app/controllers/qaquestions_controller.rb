@@ -2,7 +2,7 @@ class QaquestionsController < ApplicationController
   respond_to :json
   def index
     if current_user
-      question = Qaquestion.all
+      question = Qaquestion.all.order("id desc")
       render :json => question
     end
   end
