@@ -1,6 +1,7 @@
 <h1> Review of my Feedbacks </h1>
 <div ng-controller="ReviewController">
   <table class="table table-striped" ng-repeat="fb in list" style="table-layout:fixed;">
+    <caption style="background-color:#EDEDED;padding:25px;word-wrap:break-word;"><h4>{{fb.feedback_content}}</h4></caption>
     <thead style="background-color:#EDEDED;">
       <th>Considered</th>
       <th>Best</th>
@@ -16,14 +17,13 @@
         <td>{{fb.motivated}}</td>
         <td></td>
       </tr>
-      <tr>
-        <td colspan=5 style="word-wrap:break-word;">{{fb.feedback_content}}</td>
-      </tr>
       <tr ng-repeat="review in fb.votes">
-         <td colspan=1 style="word-wrap:break-word;"> <h4> Actionable {{review.actionable}} / 5 <h4></td>
-         <td colspan=1 style="word-wrap:break-word;"> <h4> Kind {{review.kind}} / 5 <h4></td>
-         <td colspan=1 style="word-wrap:break-word;"> <h4> Specific {{review.specific}} / 5 <h4></td>
-         <td colspan=2> </td>
+        <td colspan=5>
+          <h4> User tought this feedback was : </h4>
+          <h5> Actionable {{review.actionable}} / 5 <h5>
+          <h5> Kind {{review.kind}} / 5 <h5>
+          <h5> Specific {{review.specific}} / 5 <h5>
+        </td>
       </tr>
     </tbody>
   </table>
