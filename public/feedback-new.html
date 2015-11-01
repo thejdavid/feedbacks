@@ -1,132 +1,61 @@
 <h1> Write a new feedback </h1>
 <form name="FeedbackForm" ng-controller="FeedbackNewController as feedback" ng-submit="submit()" style="background-color:#EDEDED;"novalidate>
-    <h5>Employee name(email) :</h5>
-    <input type="email" class='form-control input-lg' name="username" placeholder="email@provider.com" ng-model="feedback.name" typeahead="state for state in states | filter:$viewValue" required/>
-      <span ng-show="FeedbackForm.username.$dirty && FeedbackForm.username.$invalid">
-        <p ng-show="FeedbackForm.username.$error.required" style="color:red">Employee email is required.</p>
-        <p ng-show="FeedbackForm.username.$error.email" style="color:red">Invalid email address.</p>
-      </span>
-    <h5>Feedback : </h5>
-    <textarea name="feedback" class="autogrow form-control input-lg" placeholder="Type your feedback here." style="width: 100%; height: 100px; padding: 10px; overflow: hidden; resize: none;" ng-model="feedback.feedback_content" ng-minlength="250" required></textarea>
-    <span ng-show="FeedbackForm.feedback.$dirty && FeedbackForm.feedback.$invalid">
-      <p ng-show="FeedbackForm.feedback.$error.minlength" style="color:red">Your feedback should be 250char minimum</p>
-      <p ng-show="FeedbackForm.feedback.$error.required" style="color:red">Feedback is required.</p>
+  <input type="email" class='form-control input-lg' name="username" placeholder="email@provider.com" ng-model="feedback.name" typeahead="state for state in states | filter:$viewValue" required/>
+    <span ng-show="FeedbackForm.username.$dirty && FeedbackForm.username.$invalid">
+      <p ng-show="FeedbackForm.username.$error.required" style="color:red">Employee email is required.</p>
+      <p ng-show="FeedbackForm.username.$error.email" style="color:red">Invalid email address.</p>
     </span>
-    <h5>I felt inspired and motivated by {{feedback.name}}</h5>
-    <input type="radio" name="motivated" ng-model="feedback.motivated" value="Never" required>Never
-    <input type="radio" name="motivated" ng-model="feedback.motivated" value="Rarely" required>Rarely
-    <input type="radio" name="motivated" ng-model="feedback.motivated" value="Sometimes" required>Sometimes
-    <input type="radio" name="motivated" ng-model="feedback.motivated" value="Mostly" required>Mostly
-    <input type="radio" name="motivated" ng-model="feedback.motivated" value="Always" required>Always
-    <input type="radio" name="motivated" ng-model="feedback.motivated" value="N/A" required>N/A
-    <span ng-show="FeedbackForm.motivated.$pristine && FeedbackForm.motivated.$invalid">
-      <span ng-show="FeedbackForm.motivated.$error.required" style="color:red">Please select an option</span>
-    </span>
-    </br>
-    <h5>While we were working, {{feedback.name}} was doing their best and giving 100% of their effort.</h5>
-    <input type="radio" name="best" ng-model="feedback.best" value="Never" required>Never
-    <input type="radio" name="best" ng-model="feedback.best" value="Rarely" required>Rarely
-    <input type="radio" name="best" ng-model="feedback.best" value="Sometimes" required>Sometimes
-    <input type="radio" name="best" ng-model="feedback.best" value="Mostly" required>Mostly
-    <input type="radio" name="best" ng-model="feedback.best" value="Always" required>Always
-    <input type="radio" name="best" ng-model="feedback.best" value="N/A" required>N/A
-    <span  ng-show="FeedbackForm.best.$pristine && FeedbackForm.best.$invalid">
-      <span ng-show="FeedbackForm.best.$error.required" style="color:red">Please select an option</span>
-    </span>
-    </br>
-    <h5>I would happily work with {{feedback.name}} again and would recommend them to others.</h5>
-    <input type="radio" name="recommend" ng-model="feedback.recommend" value="Never" required>Never
-    <input type="radio" name="recommend" ng-model="feedback.recommend" value="Rarely" required>Rarely
-    <input type="radio" name="recommend" ng-model="feedback.recommend" value="Sometimes" required>Sometimes
-    <input type="radio" name="recommend" ng-model="feedback.recommend" value="Mostly" required>Mostly
-    <input type="radio" name="recommend" ng-model="feedback.recommend" value="Always" required>Always
-    <input type="radio" name="recommend" ng-model="feedback.recommend" value="N/A" required>N/A
-    <span  ng-show="FeedbackForm.recommend.$pristine && FeedbackForm.recommend.$invalid">
-      <span ng-show="FeedbackForm.recommend.$error.required" style="color:red">Please select an option</span>
-    </span>
-    </br>
-     <h5>I felt respected and considered by {{feedback.name}}</h5>
-    <input type="radio" name="considered" ng-model="feedback.considered" value="Never" required>Never
-    <input type="radio" name="considered" ng-model="feedback.considered" value="Rarely" required>Rarely
-    <input type="radio" name="considered" ng-model="feedback.considered" value="Sometimes" required>Sometimes
-    <input type="radio" name="considered" ng-model="feedback.considered" value="Mostly" required>Mostly
-    <input type="radio" name="considered" ng-model="feedback.considered" value="Always" required>Always
-    <input type="radio" name="considered" ng-model="feedback.considered" value="N/A" required>N/A
-     <span ng-show="FeedbackForm.considered.$pristine && FeedbackForm.considered.$invalid">
-       <span ng-show="FeedbackForm.considered.$error.required" style="color:red">Please select an option</span>
-     </span>
-    </br>
-    <input type="submit" id="submit" value="Submit" ng-disabled="FeedbackForm.username.$dirty && FeedbackForm.username.$invalid ||
-  FeedbackForm.feedback.$dirty && FeedbackForm.feedback.$invalid || FeedbackForm.feedback.motivated.$invalid || FeedbackForm.feedback.best.$invalid || FeedbackForm.feedback.recommend.$invalid || FeedbackForm.feedback.considered.$invalid"/>
-    <h1>{{succes}}</h1>
+  <textarea name="feedback" class="autogrow form-control input-lg" placeholder="Type your feedback here." style="width: 100%; height: 100px; padding: 10px; overflow: hidden; resize: none;" ng-model="feedback.feedback_content" ng-minlength="250" required></textarea>
+  <span ng-show="FeedbackForm.feedback.$dirty && FeedbackForm.feedback.$invalid">
+    <p ng-show="FeedbackForm.feedback.$error.minlength" style="color:red">Your feedback should be 250char minimum</p>
+    <p ng-show="FeedbackForm.feedback.$error.required" style="color:red">Feedback is required.</p>
+  </span>
+  <h5>I felt inspired and motivated by {{feedback.name}}</h5>
+  <input type="radio" name="motivated" ng-model="feedback.motivated" value="Never" required>Never
+  <input type="radio" name="motivated" ng-model="feedback.motivated" value="Rarely" required>Rarely
+  <input type="radio" name="motivated" ng-model="feedback.motivated" value="Sometimes" required>Sometimes
+  <input type="radio" name="motivated" ng-model="feedback.motivated" value="Mostly" required>Mostly
+  <input type="radio" name="motivated" ng-model="feedback.motivated" value="Always" required>Always
+  <input type="radio" name="motivated" ng-model="feedback.motivated" value="N/A" required>N/A
+  <span ng-show="FeedbackForm.motivated.$pristine && FeedbackForm.motivated.$invalid">
+    <span ng-show="FeedbackForm.motivated.$error.required" style="color:red">Please select an option</span>
+  </span>
+  </br>
+  <h5>While we were working, {{feedback.name}} was doing their best and giving 100% of their effort.</h5>
+  <input type="radio" name="best" ng-model="feedback.best" value="Never" required>Never
+  <input type="radio" name="best" ng-model="feedback.best" value="Rarely" required>Rarely
+  <input type="radio" name="best" ng-model="feedback.best" value="Sometimes" required>Sometimes
+  <input type="radio" name="best" ng-model="feedback.best" value="Mostly" required>Mostly
+  <input type="radio" name="best" ng-model="feedback.best" value="Always" required>Always
+  <input type="radio" name="best" ng-model="feedback.best" value="N/A" required>N/A
+  <span  ng-show="FeedbackForm.best.$pristine && FeedbackForm.best.$invalid">
+    <span ng-show="FeedbackForm.best.$error.required" style="color:red">Please select an option</span>
+  </span>
+  </br>
+  <h5>I would happily work with {{feedback.name}} again and would recommend them to others.</h5>
+  <input type="radio" name="recommend" ng-model="feedback.recommend" value="Never" required>Never
+  <input type="radio" name="recommend" ng-model="feedback.recommend" value="Rarely" required>Rarely
+  <input type="radio" name="recommend" ng-model="feedback.recommend" value="Sometimes" required>Sometimes
+  <input type="radio" name="recommend" ng-model="feedback.recommend" value="Mostly" required>Mostly
+  <input type="radio" name="recommend" ng-model="feedback.recommend" value="Always" required>Always
+  <input type="radio" name="recommend" ng-model="feedback.recommend" value="N/A" required>N/A
+  <span  ng-show="FeedbackForm.recommend.$pristine && FeedbackForm.recommend.$invalid">
+    <span ng-show="FeedbackForm.recommend.$error.required" style="color:red">Please select an option</span>
+  </span>
+  </br>
+   <h5>I felt respected and considered by {{feedback.name}}</h5>
+  <input type="radio" name="considered" ng-model="feedback.considered" value="Never" required>Never
+  <input type="radio" name="considered" ng-model="feedback.considered" value="Rarely" required>Rarely
+  <input type="radio" name="considered" ng-model="feedback.considered" value="Sometimes" required>Sometimes
+  <input type="radio" name="considered" ng-model="feedback.considered" value="Mostly" required>Mostly
+  <input type="radio" name="considered" ng-model="feedback.considered" value="Always" required>Always
+  <input type="radio" name="considered" ng-model="feedback.considered" value="N/A" required>N/A
+   <span ng-show="FeedbackForm.considered.$pristine && FeedbackForm.considered.$invalid">
+     <span ng-show="FeedbackForm.considered.$error.required" style="color:red">Please select an option</span>
+   </span>
+  </br>
+  </br>
+  <input type="submit" class="btn btn-inverse" id="submit" value="Submit" ng-disabled="FeedbackForm.username.$dirty && FeedbackForm.username.$invalid ||
+FeedbackForm.feedback.$dirty && FeedbackForm.feedback.$invalid || FeedbackForm.feedback.motivated.$invalid || FeedbackForm.feedback.best.$invalid || FeedbackForm.feedback.recommend.$invalid || FeedbackForm.feedback.considered.$invalid"/>
+  <h1>{{succes}}</h1>
 </form>
-
-<style>
-@CHARSET "UTF-8";
-/*
-over-ride "Weak" message, show font in dark grey
-*/
-
-.progress-bar {
-    color: #333;
-} 
-
-/*
-Reference:
-http://www.bootstrapzen.com/item/135/simple-login-form-logo/
-*/
-
-* {
-    -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
-    outline: none;
-}
-
-    .form-control {
-      position: relative;
-      font-size: 16px;
-      height: auto;
-      padding: 10px;
-        @include box-sizing(border-box);
-
-        &:focus {
-          z-index: 2;
-        }
-    }
-
-.login-form {
-    margin-top: 60px;
-}
-
-form {
-    color: #5d5d5d;
-    background: #f2f2f2;
-    padding: 26px;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-}
-    form[role=login] img {
-        display: block;
-        margin: 0 auto;
-        margin-bottom: 35px;
-    }
-    form[role=login] input,
-    form[role=login] button {
-        font-size: 18px;
-        margin: 16px 0;
-    }
-    form[role=login] > div {
-        text-align: center;
-    }
-    
-.form-links {
-    text-align: center;
-    margin-top: 1em;
-    margin-bottom: 50px;
-}
-    .form-links a {
-        color: #fff;
-    }
-</style>

@@ -7,6 +7,7 @@
   <script type="text/javascript" src="/javascript/ui-bootstrap-tpls.min.js"></script>
   <script src="/javascript/angular-animate.min.js"></script>
   <script src="/javascript/bootstrap.min.js"></script>
+  <script src="/dirPagination.js"></script>
   <script type="text/javascript" src="/app.js"></script>
   <script type="text/javascript" src="/tab-controller.js"></script>
   <script type="text/javascript" src="/search-controller.js"></script>
@@ -20,13 +21,13 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/custom-css.css">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body style="background-color:white;">
 <% if current_user %>
-
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -48,143 +49,42 @@
     </div>
   </div>
 </nav>
-
 <div class="container-fluid">
-
   <div class="row row-offcanvas row-offcanvas-left">
-
-   <div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
-   <%= render "sidemenu" %>
-  </div><!--/span-->
-
-  <div class="col-sm-9 col-md-10 main">
-            <div ng-view>
-        </div>
-        <%= yield %>
-    <!--toggle sidebar button-->
-    <p class="visible-xs">
-      <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
-    </p>
-
-
-
-    <hr>
-
-
-</div>
-
-
-
-
-</div><!--/row-->
+    <div class="col-sm-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
+      <%= render "sidemenu" %>
+    </div>
+    <div class="col-sm-9 col-md-10 main">
+      <div ng-view autoscroll="false"></div>
+      <%= yield %>
+      <!--toggle sidebar button-->
+      <p class="visible-xs">
+        <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
+      </p>
+    </div>
+  </div><!--/row-->
 </div><!--/.container-->
-  <% else %>
-
-  <div class="container">
-    <div class="row" id="pwd-container">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">
-        <section ng-controller="TabController as tab"  class="login-form">
-          <div class="tab" ng-show="tab.isSelected(1)">
-            <%= render "devise/sessions/login" %>
-          </div>
-          <div class="tab" ng-show="tab.isSelected(2)"class="ng-hide">
-            <%= render "devise/registrations/new" %>
-          </div>
-          <div class="tab" ng-show="tab.isSelected(3)" class="ng-hide">
-            <%= render "devise/passwords/new" %>
-          </div>
-        </br>
-        <ul class="nav nav-pills">
-          <li ng-class="{ active:tab === 1}">
-            <a href ng-click="tab.selectTab(1)">Login</a>
-          </li>
-          <li ng-class="{ active:tab === 2}">
-            <a href ng-click="tab.selectTab(2)">Register</a>
-          </li>
-          <li ng-class="{ active:tab === 3}">
-            <a href ng-click="tab.selectTab(3)">Lost Password</a>
-          </li>
-        </ul>
-      </section>
-    </div>
+<% else %>
+<div class="container">
+  <div class="row" id="pwd-container">
     <div class="col-md-4"></div>
-    </div>
+    <div class="col-md-4">
+      <section ng-controller="TabController as tab"  class="login-form">
+        <div class="tab" ng-show="tab.isSelected(1)"><%= render "devise/sessions/login" %></div>
+        <div class="tab" ng-show="tab.isSelected(2)"class="ng-hide"><%= render "devise/registrations/new" %></div>
+        <div class="tab" ng-show="tab.isSelected(3)" class="ng-hide"><%= render "devise/passwords/new" %></div>
+      </br>
+      <ul class="nav nav-pills">
+        <li ng-class="{ active:tab === 1}"><a href ng-click="tab.selectTab(1)">Login</a></li>
+        <li ng-class="{ active:tab === 2}"><a href ng-click="tab.selectTab(2)">Register</a></li>
+        <li ng-class="{ active:tab === 3}"><a href ng-click="tab.selectTab(3)">Lost Password</a></li>
+      </ul>
+    </section>
   </div>
-
-
+  <div class="col-md-4"></div>
+  </div>
+</div>
   <% end %>
-
-  <style>
-  body{margin-top:60px;
-
-    font-family: 'HelveticaNeue-Thin', 'Helvetica Neue Light', 'Helvetica Neue', 'Segoe UI', Helvetica, Arial, 'Lucida Grande', sans-serif;
-
-  }
-  .glyphicon { margin-right:10px; }
-  .panel-body { padding:0px; }
-  .panel-body table tr td { padding-left: 15px }
-  .panel-body .table {margin-bottom: 0px; }
-
-a {
-    color: white;
-    text-decoration: none;
-}
-
-
-
-
-/* Small Devices, Tablets */
-@media only screen and (max-width : 768px) {
-a {
-    color: black;
-    text-decoration: none;
-}
-.profile-sidebar{
-  margin-top: 70px;
-  border: none;
-}
-.side-nav>li>ul>li>a {
-    display: block;
-    padding: 10px 15px 10px 38px;
-    text-decoration: none;
-    color: #363636;
-}
-}
-  /* animation changement page*/
-
-@-webkit-keyframes fadeOutRight {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-    -webkit-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0);
-  }
-}
-
-@keyframes fadeOutRight {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-    -webkit-transform: translate3d(100%, 0, 0);
-    transform: translate3d(100%, 0, 0);
-  }
-}
-
-.fadeOutRight {
-  -webkit-animation-name: fadeOutRight;
-  animation-name: fadeOutRight;
-}
-
-.ng-leave           { animation: fadeOutRight 0.4s both ease-in; z-index: 9999; }
-
-</style>
 </body>
 </html>
 

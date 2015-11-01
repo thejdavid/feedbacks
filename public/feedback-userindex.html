@@ -1,6 +1,7 @@
 <h1> My Feedbacks </h1>
 <div ng-controller="FeedbackUindexController">
   <table class="table table-striped" ng-repeat="fb in mylist" style="table-layout:fixed;">
+    <caption style="background-color:#EDEDED;padding:25px;word-wrap:break-word;">{{fb.feedback_content}}</caption>
     <thead style="background-color:#EDEDED;">
       <th>Considered</th>
       <th>Best</th>
@@ -15,9 +16,6 @@
         <td>{{fb.recommend}}</td>
         <td>{{fb.motivated}}</td>
         <td></td>
-      </tr>
-      <tr>
-        <td colspan=5 style="word-wrap:break-word;">{{fb.feedback_content}}</td>
       </tr>
     </tbody>
   </table>

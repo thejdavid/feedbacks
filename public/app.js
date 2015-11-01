@@ -1,4 +1,4 @@
-angular.module('FeedbackTool',['ngRoute','ng-rails-csrf','ui.bootstrap','ngAnimate'])
+angular.module('FeedbackTool',['ngRoute','ng-rails-csrf','ui.bootstrap','ngAnimate','angularUtils.directives.dirPagination'])
 .config(function($routeProvider,$locationProvider){
   $routeProvider
   .when('/dashboard', {
