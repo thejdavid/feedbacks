@@ -4,10 +4,10 @@ angular.module('FeedbackTool',['ngRoute','ng-rails-csrf','ui.bootstrap','ngAnima
   .when('/dashboard', {
    templateUrl: '/feedback-index.html'
   })
-  .when('/myfb', {
+  .when('/feedbacks', {
    templateUrl: '/feedback-userindex.html',
   })
-  .when('/new', {
+  .when('/feedback/new', {
    templateUrl: '/feedback-new.html',
   })
   .when('/reviews', {
