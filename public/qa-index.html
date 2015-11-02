@@ -1,9 +1,9 @@
-<div class="col-md-4" style="padding:12px;" ng-repeat="question in List" ng-click="OpenQuestion(question.id)">
+<div dir-paginate="question in List | itemsPerPage: 12" class="col-md-4" style="padding:12px;" ng-click="OpenQuestion(question.id)">
   <div style="background-color:#FDFDFD;padding:10px;">
-    <h4 ng-click="OpenQuestion(question.id)" style="word-wrap: break-word;"> {{question.title}}</h4>
+    <h4 ng-click="OpenQuestion(question.id)" style="word-wrap: break-word;"> {{question.title | limitTo:80}}</h4>
       <div class="testimonials">
         <div class="active item">
-        <blockquote ng-click="OpenQuestion(question.id)"><p>{{question.content}}</p></blockquote>
+        <blockquote ng-click="OpenQuestion(question.id)"><p>{{question.content | limitTo:100 }}</p></blockquote>
         <div class="carousel-info">
           <img alt="" src="http://keenthemes.com/assets/bootsnipp/img1-small.jpg" class="pull-left">
           <div class="pull-left">
@@ -17,5 +17,10 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-9 col-md-12 main">
+    <dir-pagination-controls></dir-pagination-controls>
   </div>
 </div>

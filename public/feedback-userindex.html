@@ -1,6 +1,6 @@
 <h1> My Feedbacks </h1>
 <div ng-controller="FeedbackUindexController">
-  <table class="table table-striped" ng-repeat="fb in mylist" style="table-layout:fixed;">
+  <table dir-paginate="fb in mylist | itemsPerPage: 12" class="table table-striped" style="table-layout:fixed;">
     <caption style="background-color:#EDEDED;padding:25px;word-wrap:break-word;">{{fb.feedback_content}}</caption>
     <thead style="background-color:#EDEDED;">
       <th>Considered</th>
@@ -19,4 +19,5 @@
       </tr>
     </tbody>
   </table>
+  <dir-pagination-controls></dir-pagination-controls>
 </div>

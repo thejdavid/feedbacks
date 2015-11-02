@@ -1,6 +1,6 @@
 <h1> Review of my Feedbacks </h1>
 <div ng-controller="ReviewController">
-  <table class="table table-striped" ng-repeat="fb in list" style="table-layout:fixed;">
+  <table dir-paginate="fb in list | itemsPerPage: 12" class="table table-striped"style="table-layout:fixed;">
     <caption style="background-color:#EDEDED;padding:25px;word-wrap:break-word;"><h4>{{fb.feedback_content}}</h4></caption>
     <thead style="background-color:#EDEDED;">
       <th>Considered</th>
@@ -27,4 +27,5 @@
       </tr>
     </tbody>
   </table>
+  <dir-pagination-controls></dir-pagination-controls>
 </div>

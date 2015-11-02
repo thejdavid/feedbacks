@@ -15,6 +15,8 @@ class VotesController < ApplicationController
     array = []
     user_fbdetail_and_votes_joined = user.feedbacks.includes(:feedback_detail=>:votes)
     user_fbdetail_and_votes_joined.each {|feedback| array << feedback.feedback_detail.as_json({:include=>:votes})}
-    render :json => array
+    puts "--------------------------------------------"
+    p array
+    render :json => array.compact
   end
 end
